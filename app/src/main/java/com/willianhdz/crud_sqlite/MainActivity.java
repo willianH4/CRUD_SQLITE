@@ -20,13 +20,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.github.fafaldo.fabtoolbar.widget.FABToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
-
-  //  FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-   // private FABToolbarLayout morph;
 
     private EditText et_codigo, et_descripcion, et_precio;
     private Button btn_guardar, btn_consultar1, btn_consultar2, btn_eliminar, btn_actualizar;
@@ -80,11 +76,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //agrgegado para la toolbar
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
-
-        //FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fab);
-
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.hola));
         toolbar.setTitleTextColor(getResources().getColor(R.color.mycolor1));
         toolbar.setTitleMargin(0, 0, 0, 0);
@@ -104,8 +96,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-       // FloatingActionButton fab = findViewById(R.id.fab);
-        /*fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
@@ -114,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                 ventanas.Search(MainActivity.this);
 
             }
-        }); */
+        });
 
         et_codigo = (EditText) findViewById(R.id.et_codigo);
         et_descripcion = (EditText) findViewById(R.id.et_descripcion);
@@ -125,21 +117,7 @@ public class MainActivity extends AppCompatActivity {
         btn_eliminar = (Button) findViewById(R.id.btn_eliminar);
         btn_actualizar = (Button) findViewById(R.id.btn_actualizar);
         //tv resultado —— (TextView) findViewById(R.id.tv resultado);
-       // btn_consultar3 = (Button) findViewById(R.id.btn_consultar3);
-/*
-        View uno, dos, tres, cuatro;
 
-        uno = findViewById(R.id.uno);
-        dos = findViewById(R.id.dos);
-        tres = findViewById(R.id.tres);
-        cuatro = findViewById(R.id.cuatro);
-
-        fab.setOnClickListener(this);
-        uno.setOnClickListener(this);
-        dos.setOnClickListener(this);
-        tres.setOnClickListener(this);
-        cuatro.setOnClickListener(this);
-*/
         String senal = "";
         String codigo = "";
         String descripcion = "";
@@ -201,25 +179,25 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest. xml.
         int id = item.getItemId();
 
-            //noinspection SimplifiablelfStatement
-            if (id == R.id.menu_1) {
-                et_codigo.setText(null);
-                et_descripcion.setText(null);
-                et_precio.setText(null);
-                return true;
-            } else if (id == R.id.menu_3) {
-                Intent listViewActivity = new Intent(MainActivity.this, List_view_articulos.class);
-                startActivity(listViewActivity);
-                return true;
-            } else if (id == R.id.menu_4) {
-                Intent listViewActivity = new Intent(MainActivity.this, Consulta_spinner.class);
-                startActivity(listViewActivity);
-                return true;
-            } else if (id == R.id.menu_5) {
-                Intent listViewActivity = new Intent(MainActivity.this, Lista_articulos_recyclerview.class);
-                startActivity(listViewActivity);
-                return true;
-            }
+        //noinspection SimplifiablelfStatement
+        if (id == R.id.menu_1) {
+            et_codigo.setText(null);
+            et_descripcion.setText(null);
+            et_precio.setText(null);
+            return true;
+        } else if (id == R.id.menu_3) {
+            Intent listViewActivity = new Intent(MainActivity.this, List_view_articulos.class);
+            startActivity(listViewActivity);
+            return true;
+        } else if (id == R.id.menu_4) {
+            Intent listViewActivity = new Intent(MainActivity.this, Consulta_spinner.class);
+            startActivity(listViewActivity);
+            return true;
+        } else if (id == R.id.menu_5) {
+            Intent listViewActivity = new Intent(MainActivity.this, Lista_articulos_recyclerview.class);
+            startActivity(listViewActivity);
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -382,12 +360,4 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
-   /* @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.fab) {
-            morph.show();
-        }
-        morph.hide();
-    }*/
 }
