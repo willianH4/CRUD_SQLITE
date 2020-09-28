@@ -10,9 +10,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 
+import com.github.fafaldo.fabtoolbar.widget.FABToolbarLayout;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 
-public class List_view_articulos extends AppCompatActivity {
+public class List_view_articulos extends AppCompatActivity{
 
     ListView listViewPersonas;
     ArrayAdapter adaptador;
@@ -29,18 +32,39 @@ public class List_view_articulos extends AppCompatActivity {
     ConexionSQLite conexion = new ConexionSQLite(this);
     Dto datos = new Dto();
 
+    //para la toolbar
+    private FABToolbarLayout morph;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_view_articulos);
 
+/*
+        //para la toolbar
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        morph = (FABToolbarLayout) findViewById(R.id.fabtoolbar);
+
+        View uno, dos, tres, cuatro;
+
+        uno = findViewById(R.id.uno);
+        dos = findViewById(R.id.dos);
+        tres = findViewById(R.id.tres);
+        cuatro = findViewById(R.id.cuatro);
+
+        fab.setOnClickListener(this);
+        uno.setOnClickListener(this);
+        dos.setOnClickListener(this);
+        tres.setOnClickListener(this);
+        cuatro.setOnClickListener(this);
+*/
         listViewPersonas= (ListView) findViewById(R.id.listViewPersonas);
         searchView = (SearchView) findViewById(R.id.searchView);
 
         //searchView —— findViewByld(R.id.searchView),
         //conexion. consultaListaAdiculos(),
-        //ArrayAdapter<CharSequence> adaptador —— new ArrayAdapter(this, android. R.layout. simple spinner item, IistaArticulos),’
+        //ArrayAdapter<CharSequence> adaptador —— new ArrayAdapter(this, android. R.layout. simple spinner item, IistaArticulos);
 
         adaptador = new ArrayAdapter(this, android.R.layout.simple_list_item_1,
                 conexion.consultaListaArticulos1());
@@ -96,4 +120,14 @@ public class List_view_articulos extends AppCompatActivity {
 
         });
     }
+/*
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.fab) {
+            morph.show();
+        }
+        morph.hide();
+    }
+
+ */
 }

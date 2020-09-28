@@ -4,23 +4,42 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".List_view_articulos"
+
+        <activity android:name=".Lista_articulos_recyclerview"
+        android:label="Lista con Recyclerview"
+            android:parentActivityName=".MainActivity">
+        <!-- The meta-data tag is required if you support API level 15 and lower -->
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".List_view_articulos"
             android:configChanges="screenSize|orientation"
-            android:windowSoftInputMode="stateHidden"
-            ></activity>
-        <activity android:name=".Detalles_articulos" />
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity android:name=".Detalles_articulos"
+            android:label="Detalles de articulos"
+            android:parentActivityName=".MainActivity">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
         <activity android:name=".Consulta_spinner" />
-        <activity android:name=".MainActivity"
-            android:label="@string/app_name"
+        <activity
+            android:name=".MainActivity"
             android:configChanges="screenSize|orientation"
-            android:windowSoftInputMode="stateHidden"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
-            >
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
