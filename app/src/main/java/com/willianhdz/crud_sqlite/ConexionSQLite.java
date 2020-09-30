@@ -304,7 +304,7 @@ public class ConexionSQLite extends SQLiteOpenHelper {
             registro.put("descripcion", descripcion);
             registro.put("precio", precio);
             //int cant —— (int) this.getWritableDatabase().update(”adiculos”, registro, "codigo——" + codigo, null),”
-            int cant = (int) bd.update("articuIos", registro, "codigo=" + codigo, null);
+            int cant = (int) bd.update("articulos", registro, "codigo=" + codigo, null);
             //bd.update("articulos”,registro,"codigo——?”,parametros),’
             bd.close();
             if (cant > 0) estado = true;
