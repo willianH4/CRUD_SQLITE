@@ -41,24 +41,6 @@ public class List_view_articulos extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_view_articulos);
 
-/*
-        //para la toolbar
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        morph = (FABToolbarLayout) findViewById(R.id.fabtoolbar);
-
-        View uno, dos, tres, cuatro;
-
-        uno = findViewById(R.id.uno);
-        dos = findViewById(R.id.dos);
-        tres = findViewById(R.id.tres);
-        cuatro = findViewById(R.id.cuatro);
-
-        fab.setOnClickListener(this);
-        uno.setOnClickListener(this);
-        dos.setOnClickListener(this);
-        tres.setOnClickListener(this);
-        cuatro.setOnClickListener(this);
-*/
         listViewPersonas= (ListView) findViewById(R.id.listViewPersonas);
         searchView = (SearchView) findViewById(R.id.searchView);
 
@@ -120,14 +102,5 @@ public class List_view_articulos extends AppCompatActivity{
 
         });
     }
-/*
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.fab) {
-            morph.show();
-        }
-        morph.hide();
-    }
 
- */
 }

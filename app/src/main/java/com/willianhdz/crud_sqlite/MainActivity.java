@@ -10,6 +10,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,9 +21,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.fafaldo.fabtoolbar.widget.FABToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class MainActivity extends AppCompatActivity {
+import static android.widget.Toast.LENGTH_LONG;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private FABToolbarLayout morph; //agregado para la toolbar
 
     private EditText et_codigo, et_descripcion, et_precio;
     private Button btn_guardar, btn_consultar1, btn_consultar2, btn_eliminar, btn_actualizar;
@@ -76,6 +82,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Inicia codigo para la Toolbar
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        morph = (FABToolbarLayout) findViewById(R.id.fabtoolbar);
+
+        View uno, dos, tres, cuatro, cinco, seis;
+
+        uno = findViewById(R.id.uno);
+        dos = findViewById(R.id.dos);
+        tres = findViewById(R.id.tres);
+        cuatro = findViewById(R.id.cuatro);
+        cinco = findViewById(R.id.cinco);
+        seis = findViewById(R.id.seis);
+
+        fab.setOnClickListener(this);
+        uno.setOnClickListener(this);
+        dos.setOnClickListener(this);
+        tres.setOnClickListener(this);
+        cuatro.setOnClickListener(this);
+        cinco.setOnClickListener(this);
+        seis.setOnClickListener(this);
+//Finaliza codigo para la Toolbar
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.hola));
         toolbar.setTitleTextColor(getResources().getColor(R.color.mycolor1));
@@ -96,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /* comentado para probar la Toolbar
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
 
@@ -107,6 +136,9 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+         */
 
         et_codigo = (EditText) findViewById(R.id.et_codigo);
         et_descripcion = (EditText) findViewById(R.id.et_descripcion);
@@ -237,7 +269,7 @@ public class MainActivity extends AppCompatActivity {
                     limpiarDatos();
                 }else {
                     Toast.makeText(getApplicationContext(), "Error. Ya existe un registro\n" +
-                            " Codigo: " + et_codigo.getText().toString(), Toast.LENGTH_LONG).show();
+                            " Codigo: " + et_codigo.getText().toString(), LENGTH_LONG).show();
                     limpiarDatos();
                 }
 
@@ -358,6 +390,33 @@ public class MainActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
 
             }
+        }
+    }
+
+    //metodo de la toolbarr
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.fab) {
+            morph.show();
+        }
+        morph.hide();
+        if (v.getId() == R.id.uno){
+            et_codigo.setText(null);
+            et_descripcion.setText(null);
+            et_precio.setText(null);
+            Toast.makeText(getApplicationContext(),"Campos limpiados correctamente",Toast.LENGTH_SHORT).show();
+
+        }else if (v.getId() == R.id.dos){
+            Intent listViewActivity = new Intent(MainActivity.this, List_view_articulos.class);
+            startActivity(listViewActivity);
+
+        }else if (v.getId() == R.id.tres){
+            Intent listViewActivity = new Intent(MainActivity.this, Consulta_spinner.class);
+            startActivity(listViewActivity);
+
+        }else if (v.getId() == R.id.cuatro){
+            Intent listViewActivity = new Intent(MainActivity.this, Lista_articulos_recyclerview.class);
+            startActivity(listViewActivity);
         }
     }
 }
