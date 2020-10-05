@@ -111,24 +111,6 @@
             android:src="@drawable/ic_recycler"
             />
 
-        <ImageView
-            android:id="@+id/cinco"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_paste"
-            />
-
-        <ImageView
-            android:id="@+id/seis"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_paste"
-            />
-
     </LinearLayout>
 
     </com.github.fafaldo.fabtoolbar.widget.FABToolbarLayout>

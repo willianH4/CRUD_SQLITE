@@ -92,16 +92,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dos = findViewById(R.id.dos);
         tres = findViewById(R.id.tres);
         cuatro = findViewById(R.id.cuatro);
-        cinco = findViewById(R.id.cinco);
-        seis = findViewById(R.id.seis);
 
         fab.setOnClickListener(this);
         uno.setOnClickListener(this);
         dos.setOnClickListener(this);
         tres.setOnClickListener(this);
         cuatro.setOnClickListener(this);
-        cinco.setOnClickListener(this);
-        seis.setOnClickListener(this);
 //Finaliza codigo para la Toolbar
 
         Toolbar toolbar = findViewById(R.id.toolbar);
