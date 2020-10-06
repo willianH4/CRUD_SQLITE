@@ -72,7 +72,8 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
 
         <ImageView
             android:id="@+id/uno"
@@ -80,7 +81,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:scaleType="centerInside"
-            android:src="@drawable/ic_borrar"
+            android:src="@drawable/ic_search2"
             />
 
         <ImageView
@@ -89,7 +90,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:scaleType="centerInside"
-            android:src="@drawable/ic_list"
+            android:src="@drawable/ic_save"
             />
 
         <ImageView
@@ -98,7 +99,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:scaleType="centerInside"
-            android:src="@drawable/ic_spinner"
+            android:src="@drawable/ic_search"
             />
 
         <ImageView
@@ -108,7 +109,34 @@
             android:layout_weight="1"
             android:scaleType="centerInside"
             android:tooltipText="Recyclerview"
-            android:src="@drawable/ic_recycler"
+            android:src="@drawable/ic_borrar"
+            />
+
+        <ImageView
+            android:id="@+id/cinco"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_list"
+            />
+
+        <ImageView
+            android:id="@+id/seis"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_descripcion"
+            />
+
+        <ImageView
+            android:id="@+id/siete"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_close2"
             />
 
     </LinearLayout>

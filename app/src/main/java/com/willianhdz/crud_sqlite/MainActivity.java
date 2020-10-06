@@ -92,16 +92,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dos = findViewById(R.id.dos);
         tres = findViewById(R.id.tres);
         cuatro = findViewById(R.id.cuatro);
+        cinco = findViewById(R.id.cinco);
+        seis = findViewById(R.id.seis);
 
         fab.setOnClickListener(this);
         uno.setOnClickListener(this);
         dos.setOnClickListener(this);
         tres.setOnClickListener(this);
         cuatro.setOnClickListener(this);
+        cinco.setOnClickListener(this);
+        seis.setOnClickListener(this);
 //Finaliza codigo para la Toolbar
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.hola));
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_close2));
         toolbar.setTitleTextColor(getResources().getColor(R.color.mycolor1));
         toolbar.setTitleMargin(0, 0, 0, 0);
         toolbar.setSubtitle("Tarea CRUD SQLite");
@@ -140,10 +144,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         et_descripcion = (EditText) findViewById(R.id.et_descripcion);
         et_precio = (EditText) findViewById(R.id.et_precio);
         btn_guardar = (Button) findViewById(R.id.btn_guardar);
-        btn_consultar1 = (Button) findViewById(R.id.btn_consultar1);
-        btn_consultar2 = (Button) findViewById(R.id.btn_consultar2);
-        btn_eliminar = (Button) findViewById(R.id.btn_eliminar);
-        btn_actualizar = (Button) findViewById(R.id.btn_actualizar);
+       // btn_consultar1 = (Button) findViewById(R.id.btn_consultar1);
+       // btn_consultar2 = (Button) findViewById(R.id.btn_consultar2);
+       // btn_eliminar = (Button) findViewById(R.id.btn_eliminar);
+       // btn_actualizar = (Button) findViewById(R.id.btn_actualizar);
         //tv resultado —— (TextView) findViewById(R.id.tv resultado);
 
         String senal = "";
@@ -287,7 +291,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         et_codigo.requestFocus();
     }
 
-    public void consultaporcodigo(View v) {
+    public void consultaporcodigo() {
         if(et_codigo.getText().toString().length()==0){
             et_codigo.setError("Campo obligatorio");
             inputEt = false;
@@ -312,7 +316,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.LENGTH_SHORT).show();
         }}
 
-    public void consultapordescripcion(View v){
+    public void consultapordescripcion(){
         if(et_descripcion.getText().toString().length()==0){
             et_descripcion.setError("Campo obligatorio");
             inputEd = false;
@@ -339,7 +343,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    public void bajaporcodigo(View v) {
+    public void bajaporcodigo() {
         if(et_codigo.getText().toString().length()==0){
             et_codigo.setError("campo obligatorio");
             inputEt = false;
@@ -361,7 +365,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    public void modificacion(View v) {
+    public void modificacion() {
         if (et_codigo.getText().toString().length() == 0) {
             et_codigo.setError("campo obligatorio");
             inputEt = false;
@@ -397,22 +401,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         morph.hide();
         if (v.getId() == R.id.uno){
-            et_codigo.setText(null);
-            et_descripcion.setText(null);
-            et_precio.setText(null);
-            Toast.makeText(getApplicationContext(),"Campos limpiados correctamente",Toast.LENGTH_SHORT).show();
+            consultapordescripcion();
+            Toast.makeText(getApplicationContext(),"Buscar por descripcion",Toast.LENGTH_SHORT).show();
 
         }else if (v.getId() == R.id.dos){
-            Intent listViewActivity = new Intent(MainActivity.this, List_view_articulos.class);
+           /* Intent listViewActivity = new Intent(MainActivity.this, List_view_articulos.class);
             startActivity(listViewActivity);
+
+            */
+           alta(v=null);
+            Toast.makeText(getApplicationContext(),"Registro guardado correctamente :)",Toast.LENGTH_SHORT).show();
 
         }else if (v.getId() == R.id.tres){
-            Intent listViewActivity = new Intent(MainActivity.this, Consulta_spinner.class);
+           /* Intent listViewActivity = new Intent(MainActivity.this, Consulta_spinner.class);
             startActivity(listViewActivity);
 
+            */
+            Toast.makeText(getApplicationContext(),"Busqueda por codigo",Toast.LENGTH_SHORT).show();
+            ventanas.Search(MainActivity.this);
+
         }else if (v.getId() == R.id.cuatro){
-            Intent listViewActivity = new Intent(MainActivity.this, Lista_articulos_recyclerview.class);
+           /* Intent listViewActivity = new Intent(MainActivity.this, Lista_articulos_recyclerview.class);
             startActivity(listViewActivity);
+
+            */
+            Toast.makeText(getApplicationContext(),"Eliminar registro",Toast.LENGTH_SHORT).show();
+            bajaporcodigo();
+        }else if (v.getId() == R.id.cinco){
+            Toast.makeText(getApplicationContext(),"Lista articulos en Spinner",Toast.LENGTH_SHORT).show();
+            Intent listViewActivity = new Intent(MainActivity.this, Consulta_spinner.class);
+            startActivity(listViewActivity);
+        }else if (v.getId() == R.id.seis){
+            Toast.makeText(getApplicationContext(),"Actualizar registro",Toast.LENGTH_SHORT).show();
+            modificacion();
         }
     }
 }
